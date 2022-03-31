@@ -27,3 +27,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+        repository: 'smallac/azure_docker_ckan_test_001'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
