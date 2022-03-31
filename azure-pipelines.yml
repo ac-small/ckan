@@ -27,6 +27,11 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
+    - task: ContainerBuild@0
+      inputs:
+        dockerRegistryServiceConnection: 'dockerHub'
+        repository: 'postgres:9.6.24'
+        Dockerfile: 'Dockerfile'
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerHub'
