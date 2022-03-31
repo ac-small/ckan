@@ -35,8 +35,16 @@ stages:
         tags: |
           $(tag)
     - task: Docker@2
+      displayName: Push App Image to DockerHub
       inputs:
         containerRegistry: 'dockerHub'
         repository: 'smallac/azure_docker_ckan_test_001'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+    - task: Docker@2
+      displayName: Push DB Image to DockerHub
+      inputs:
+        containerRegistry: 'dockerHub'
+        repository: 'smallac/azure_docker_db_test_001'
+        command: 'buildAndPush'
+        Dockerfile: '**/postgresql/Dockerfile'
