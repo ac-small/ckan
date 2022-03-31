@@ -30,5 +30,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'dockerHub'
+        repository: azure_docker_ckan_test_001
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
