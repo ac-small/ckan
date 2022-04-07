@@ -47,4 +47,4 @@ stages:
         containerRegistry: 'dockerHub'
         repository: 'smallac/azure_docker_db_test_001'
         command: 'buildAndPush'
-        Dockerfile: '**/postgresql/Dockerfile'
+        Dockerfile: '**/contrib/docker/postgresql/Dockerfile'
