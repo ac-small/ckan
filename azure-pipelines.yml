@@ -30,10 +30,10 @@ stages:
     - task: Docker@2
       displayName: Build DB Image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/contrib/docker/postgresql/Dockerfile'
-        tags: |
-          $(tag)
+        command: 'build'
+        Dockerfile: '**/contrib/docker/postgresql/Dockerfile'
+        buildContext: '**/contrib/docker/postgresql'
+        tags: '$(tag)'
     - task: Docker@2
       displayName: Push App Image to DockerHub
       inputs:
