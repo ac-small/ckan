@@ -31,7 +31,7 @@ stages:
       displayName: Build DB Image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/postgresql/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/contrib/docker/postgresql/Dockerfile'
         tags: |
           $(tag)
     - task: Docker@2
@@ -47,4 +47,4 @@ stages:
         containerRegistry: 'dockerHub'
         repository: 'smallac/azure_docker_db_test_001'
         command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/postgresql/Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/contrib/docker/postgresql/Dockerfile'
